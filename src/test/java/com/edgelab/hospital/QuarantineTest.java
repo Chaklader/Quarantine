@@ -1,6 +1,5 @@
 package com.edgelab.hospital;
 
-import com.edgelab.hospital.Quarantine;
 import org.junit.Before;
 import org.junit.Test;
 
