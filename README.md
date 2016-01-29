@@ -10,10 +10,10 @@ If you want to impress us, show that you have considered the following.
 Thank you and have fun!
 
 # Result
-When you're done with the test, run the following command:
+When you feel pleased with your solution, run the following command:
 ```
 #!bash
 mvn package
 
 ```
-Then send the **hospital-1.0-SNAPSHOT-sources.jar** to us.
+Then send the **hospital-1.0-SNAPSHOT-sources.jar** back to us.
