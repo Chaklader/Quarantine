@@ -7,3 +7,6 @@ We wouldn't ask anyone to do a coding puzzle that we haven't done ourselves, so 
 * We also consider the extensibility of the code produced. Well factored code should be relatively easily extended. Although we would caution against speculative design.
 
 Thank you and have fun!
+
+# Result
+When you're done with the test, please clean the project (mvn clean), zip the folder and send it back to us.
