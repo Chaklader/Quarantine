@@ -1,6 +1,7 @@
 # Guidance
 
-We wouldn't ask anyone to do a coding puzzle that we haven't done ourselves, so the people looking at your code understand the problem we're asking to be solved. If you want to impress us, show that you have considered the following.
+We wouldn't ask anyone to do a coding puzzle that we haven't done ourselves, so the people looking at your code understand the problem we're asking to be solved.
+If you want to impress us, show that you have considered the following.
 
 * Any indicator of design (DDD, or design patterns) would make us smile.
 * Are you familiar with Java 8? The Java 8 features are widespread at EdgeLab, but their usage must be justified.
@@ -9,4 +10,10 @@ We wouldn't ask anyone to do a coding puzzle that we haven't done ourselves, so 
 Thank you and have fun!
 
 # Result
-When you're done with the test, please clean the project (mvn clean), zip the folder and send it back to us.
+When you're done with the test, run the following command:
+```
+#!bash
+mvn package
+
+```
+Then send the **hospital-1.0-SNAPSHOT-sources.jar** to us.
