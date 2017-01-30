@@ -13,7 +13,6 @@ Thank you and have fun!
 # Result
 When you feel pleased with your solution, run the following command:
 ```
-#!bash
 mvn package
 
 ```
