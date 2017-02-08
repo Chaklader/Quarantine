@@ -1,1 +1,1 @@
-# Quarantine
+Hospital Quarantine
