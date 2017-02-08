@@ -36,6 +36,7 @@ public class QuarantineTest {
         assertEquals("F:1 H:2 D:3 T:1 X:0", quarantine.report());
     }
 
+    // people died in the Diabetes
     @Test
     public void noTreatment() throws Exception {
         quarantine.wait40Days();
@@ -43,6 +44,8 @@ public class QuarantineTest {
         assertEquals("F:1 H:2 D:0 T:1 X:3", quarantine.report());
     }
 
+    // feaver is cured
+    //  people died in the Diabetes
     @Test
     public void aspirin() throws Exception {
         quarantine.aspirin();
