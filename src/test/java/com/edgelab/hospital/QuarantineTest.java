@@ -1,9 +1,9 @@
 package com.edgelab.hospital;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 
 public class QuarantineTest {
 
@@ -96,5 +96,4 @@ public class QuarantineTest {
         // paracetamol kills subject if mixed with aspirin
         assertEquals("F:0 H:0 D:0 T:0 X:7", quarantine.report());
     }
-
 }

@@ -1,15 +1,21 @@
 package com.edgelab.hospital;
 
-//import org.apache.commons.lang3.NotImplementedException;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+
+/*Create a Patient class to monitor
+a persons health, and a class hierarchy of Treatments with sub-classes for aspirin, paracetamol,
+etc. Somehow model the interaction between patient and treatment, have a quarantine class, which
+acts as a factory for treatments and as control object, etc. Think about additional treatment being
+added: if a new treatment "voodomagic" gets added, how can you incorporate this without changing
+existing code? */
+
+
 public class Quarantine {
 
-//    private static final String NOT_IMPLEMENTED_MESSAGE = "Work, work.";
     private Map<Character, Integer> map;
 
     boolean insuline;
@@ -34,9 +40,7 @@ public class Quarantine {
     }
 
     // aspirin cures fever
-    public void aspirin() {
-        aspirin = true;
-    }
+    public void aspirin() { aspirin = true; }
 
     public void antibiotic() {
         antibiotic = true;
@@ -90,7 +94,10 @@ public class Quarantine {
             wait40Days = true;
         }
 
-        // check if we will needs to wait for 40 days after the medication to see the affect
+        /*
+        check if we will needs to wait for 40 days
+        after the medication to see the affect
+        * */
         if (wait40Days) {
             map.put('X', map.get('D'));
             map.put('D', 0);
@@ -100,11 +107,9 @@ public class Quarantine {
 
     // get the Quarantine report
     public String report() {
-
         try {
             final String[] result = {""};
             map.forEach((k, v) -> result[0] += k.toString() + ":" + v.toString() + " ");
-//            map.entrySet().stream().forEach(e -> result[0] += e.getKey() + ":" + e.getValue() + " ");
             return result[0].trim();
         } catch (Exception e) {
             e.printStackTrace();
