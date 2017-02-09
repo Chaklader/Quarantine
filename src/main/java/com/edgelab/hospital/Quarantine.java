@@ -1,33 +1,32 @@
 package com.edgelab.hospital;
 
-import org.apache.commons.lang3.NotImplementedException;
+//import org.apache.commons.lang3.NotImplementedException;
 
-import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Quarantine {
 
-    private static final String NOT_IMPLEMENTED_MESSAGE = "Work, work.";
-    private Map<Character, Integer> map = new LinkedHashMap<>();
+//    private static final String NOT_IMPLEMENTED_MESSAGE = "Work, work.";
+    private Map<Character, Integer> map;
 
-    boolean insuline = false;
-    boolean antibiotic = false;
-    boolean aspirin = false;
-    boolean paracetamol = false;
-
+    boolean insuline;
+    boolean wait40Days;
+    boolean antibiotic;
+    boolean aspirin;
+    boolean paracetamol;
 
     public Quarantine(String subjects) {
-
         try {
-            List<String> values = Arrays.asList((subjects.split(",")));
-
-            for (String value : values) {
-                char v = value.charAt(0);
-                map.put(v, map.containsKey(v) ? map.get(v) + 1 : 1);
-            }
-
+            map = Pattern.compile(",")
+                    .splitAsStream(subjects)
+                    .collect(Collectors.groupingBy(
+                            s -> s.charAt(0),
+                            LinkedHashMap::new,
+                            Collectors.collectingAndThen(Collectors.counting(), Long::intValue)
+                    ));
             map.put('X', 0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,91 +51,61 @@ public class Quarantine {
     }
 
     public void wait40Days() {
-
         if (antibiotic) {
-
             // antobiotic is mixed with the insuline
             if (insuline) {
-
-                int healthyPeople = map.get('H');
-                int peopleWithTuberculosis = map.get('T');
-
+                map.put('F', map.get('F') + map.get('H'));
+                map.put('H', map.get('T'));
                 map.put('T', 0);
-
-                map.put('F', map.get('F') + healthyPeople);
-                map.put('H', peopleWithTuberculosis);
-
                 return;
             }
-
             // only the antibiotic
             else {
                 map.put('H', map.get('H') + map.get('T'));
                 map.put('T', 0);
-
-                map.put('X', map.get('D'));
-                map.put('D', 0);
-                return;
+                wait40Days = true;
             }
-        }
-
-        else if (paracetamol) {
-
-            // paracetamol mixed with the aspirin
+        } else if (paracetamol) {
+            // paracetamol mixed with the aspirin kills everyone
             if (aspirin) {
-
-                // F:0 H:3 D:0 T:1 X:3
                 map.put('X', map.get('X') + map.get('F') + map.get('H') + map.get('D') + map.get('T'));
                 map.put('F', 0);
                 map.put('H', 0);
                 map.put('D', 0);
                 map.put('T', 0);
-
                 return;
-            } else {
+            } else { // only provides the paracetamol as medication
                 map.put('H', map.get('H') + map.get('F'));
                 map.put('F', 0);
-
-                map.put('X', map.get('D'));
-                map.put('D', 0);
-                return;
+                wait40Days = true;
             }
-        }
-
-        // only with aspirin
-        else if (aspirin) {
-
+        } else if(aspirin) { // only provides aspirin as medication
             map.put('H', map.get('H') + map.get('F'));
             map.put('F', 0);
-            map.put('X', map.get('D'));
-            map.put('D', 0);
-
+            wait40Days = true;
+        } else if (insuline) {
+            // only provision of insuline prevents death from the diabetes
             return;
+        } else {         // no medicine was provided, just waited for the 40 days
+            wait40Days = true;
         }
 
-        // only with insuline prevents death from the diabe
-        else if (insuline) {
-            return;
-        } else {
+        // check if we will needs to wait for 40 days after the medication to see the affect
+        if (wait40Days) {
             map.put('X', map.get('D'));
             map.put('D', 0);
+            wait40Days = false;
         }
     }
 
+    // get the Quarantine report
     public String report() {
 
         try {
-
-            String result = "";
-
-            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-
-                char key = entry.getKey();
-                int value = entry.getValue();
-
-                result += key + ":" + value + " ";
-            }
-            return result.trim();
+            final String[] result = {""};
+            map.forEach((k, v) -> result[0] += k.toString() + ":" + v.toString() + " ");
+//            map.entrySet().stream().forEach(e -> result[0] += e.getKey() + ":" + e.getValue() + " ");
+            return result[0].trim();
         } catch (Exception e) {
             e.printStackTrace();
         }
