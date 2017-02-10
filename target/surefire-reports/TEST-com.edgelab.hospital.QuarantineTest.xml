@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="com.edgelab.hospital.QuarantineTest" time="0.774" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="com.edgelab.hospital.QuarantineTest" time="0.186" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib"/>
@@ -62,12 +62,12 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="antibiotic" time="0.566"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="aspirin" time="0.005"/>
+  <testcase classname="com.edgelab.hospital.QuarantineTest" name="antibiotic" time="0.177"/>
+  <testcase classname="com.edgelab.hospital.QuarantineTest" name="aspirin" time="0.001"/>
   <testcase classname="com.edgelab.hospital.QuarantineTest" name="beforeTreatment" time="0.002"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="paracetamolAndAspirin" time="0.201"/>
+  <testcase classname="com.edgelab.hospital.QuarantineTest" name="paracetamolAndAspirin" time="0.004"/>
   <testcase classname="com.edgelab.hospital.QuarantineTest" name="paracetamol" time="0"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="noTreatment" time="0"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="insulin" time="0"/>
+  <testcase classname="com.edgelab.hospital.QuarantineTest" name="noTreatment" time="0.001"/>
+  <testcase classname="com.edgelab.hospital.QuarantineTest" name="insulin" time="0.001"/>
   <testcase classname="com.edgelab.hospital.QuarantineTest" name="antibioticPlusInsulin" time="0"/>
 </testsuite>

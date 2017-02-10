@@ -1,1 +1,10 @@
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AbstractTreatment.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/ParacetamolTreatment.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/QuarantineFactory.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AntibioticTreatment.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AspirinTreatment.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/Wait40DaysTreatment.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/HealthCondition.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/Medication.java
 /Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/Quarantine.java
+/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/InsulinTreatment.java

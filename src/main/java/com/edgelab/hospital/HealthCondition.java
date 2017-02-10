@@ -18,6 +18,11 @@ public enum HealthCondition {
     }
 
     public static HealthCondition getHealthConditionWithHealthCode(String healthCode){
+
+        if (healthCode == null || healthCode.isEmpty()){
+            return null;
+        }
+
         for (HealthCondition healthCondition : values()){
             if(healthCondition.healthCode.equals(healthCode)){
                 return healthCondition;

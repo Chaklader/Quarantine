@@ -2,22 +2,30 @@ package com.edgelab.hospital;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Created by Chaklader on 2/10/17.
  */
 public class QuarantineFactory {
 
+    /**
+     * get the quarantine people health conditions and map it in LinkedHashMap
+     *
+     * @param listOfPatient String contains the patient health conditions seperated with commas
+     * @return a LinkedHashMap filled witn the patient conditions and the independent count
+     */
     public static Map<HealthCondition, Integer> getGroupOfPatients(String listOfPatient) {
 
         Map<HealthCondition, Integer> groupOfPatients = new LinkedHashMap<HealthCondition, Integer>();
-        String[] HealthConditionArray = factorySpliter(listOfPatient, ",");
+        String[] healthConditions = factorySpliter(listOfPatient, ",");
 
-        for (int i = 0; i < HealthConditionArray.length; i++) {
-            HealthCondition healthCondition = HealthCondition.getHealthConditionWithHealthCode(HealthConditionArray[i]);
-            groupOfPatients.put(healthCondition, groupOfPatients.containsKey(healthCondition)?
-                    groupOfPatients.get(healthCondition) +1 : 1);
-        }
+        IntStream.range(0, healthConditions.length)
+                .forEach(i -> {
+                    HealthCondition healthCondition = HealthCondition.getHealthConditionWithHealthCode(healthConditions[i]);
+                    groupOfPatients.put(healthCondition, groupOfPatients.containsKey(healthCondition) ?
+                            groupOfPatients.get(healthCondition) + 1 : 1);
+                });
 
         initDiedHealthCondition(groupOfPatients);
         return groupOfPatients;
