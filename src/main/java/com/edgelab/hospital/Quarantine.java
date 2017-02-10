@@ -5,15 +5,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-
-/*Create a Patient class to monitor
-a persons health, and a class hierarchy of Treatments with sub-classes for aspirin, paracetamol,
-etc. Somehow model the interaction between patient and treatment, have a quarantine class, which
-acts as a factory for treatments and as control object, etc. Think about additional treatment being
-added: if a new treatment "voodomagic" gets added, how can you incorporate this without changing
-existing code? */
-
-
 public class Quarantine {
 
     private Map<Character, Integer> map;
