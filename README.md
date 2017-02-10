@@ -1,1 +1,1 @@
-# Quarantine System Designed With Strategy Design Pattern 
+ Quarantine System Designed With Strategy Design Pattern 
