@@ -6,6 +6,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+
+
+/*
+Here is some feedback:
+
+    1. obscure way of storing the medications in a map
+    2. the way of storing the group of patients if very error-prone and 
+    could lead to different number from the initial one
+    3. killAll method in the parent for no reason
+    4. HealthCondition doesn't have a proper lookup method
+    5. in general the code is uneasy to understand at first sight
+*/
+
+
 public class Quarantine {
 
     private Map<HealthCondition, Integer> groupOfPatients;
