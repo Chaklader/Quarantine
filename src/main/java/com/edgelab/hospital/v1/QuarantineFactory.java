@@ -1,4 +1,4 @@
-package com.edgelab.hospital;
+package com.edgelab.hospital.v1;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

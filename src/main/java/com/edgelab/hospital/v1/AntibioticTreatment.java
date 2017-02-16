@@ -1,7 +1,7 @@
-package com.edgelab.hospital.treatment;
+package com.edgelab.hospital.v1.treatment;
 
-import com.edgelab.hospital.HealthCondition;
-import com.edgelab.hospital.Medication;
+import com.edgelab.hospital.v1.HealthCondition;
+import com.edgelab.hospital.v1.Medication;
 import java.util.Map;
 
 /**

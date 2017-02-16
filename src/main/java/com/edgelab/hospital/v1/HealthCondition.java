@@ -1,4 +1,4 @@
-package com.edgelab.hospital;
+package com.edgelab.hospital.v1;
 
 /**
  * Created by Chaklader on 2/10/17.
