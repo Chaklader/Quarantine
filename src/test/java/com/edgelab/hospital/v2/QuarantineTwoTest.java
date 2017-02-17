@@ -85,7 +85,7 @@ public class QuarantineTwoTest {
 
         // if insulin is mixed with antibiotic, healthy people catch Fever
         // this test fails
-        // assertEquals("F:3 H:1 D:3 T:0 X:0", quarantine.report());
+         assertEquals("F:3 H:1 D:3 T:0 X:0", quarantine.report());
     }
 
     @Test

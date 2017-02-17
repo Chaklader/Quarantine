@@ -16,54 +16,13 @@ import static com.edgelab.hospital.v2.Medicine.*;
  * group of patients.
  * It is initialized with a list of patients' health status, separated by a
  * comma. Each health status is described by one or more characters
- *
+ * <p>
  * The characters mean:
  * H : Healthy
  * F : Fever
  * D : Diabetes
  * T : Tuberculosis
  */
-
-
-
-/*
-So yes, your code lack of Object Oriented design and patterns. A quick look give
-me the idea that the QuarantineOne can be a factory for Medicine, but that is a little
-improvement.
-
-The first thing to do is to create your models. You have the QuarantineOne class but also
-a group of Patients, some Medecine and a set of Disease.
-
-The Disease are a facts, something that you will just accept, so it can be an enumeration.
-[pattern enumeration]
-
-The Patients maintains a counter, that can move from one group to the other. It just
-maintains an integer an can be seen as a decorator. [pattern decorator]
-
-class Patients {
-   int size;
-   void becomes(Patients other) {
-     other.size += this.size;
-     this.size = 0;
-   }
-}
-
-The QuarantineOne distribute one or more Medicine to all the Patients, I have created a Treatment
-class to maintains all the Medicine. This class is immutable and allows me to query it and add
-or remove Medicine. The quarantine can be a factory and a builder (because it compose the treatment).
-
-The new Treatment class can be seen as many patterns, helper or state]. But also a composite because
-it implements the Medicine but is also a delegate.
-
-Finally, the biggest part is from the Medicine where all the logic reside. When add to the Treatment
-a Medicine will change the results of it. So a Medicine must be combined with an existing Treatment
-and given to a group of Patients to produce his effects. The strategy pattern apply to this class.
-
-interface Medicine {
-  void on(QuarantineOne quarantine);
-  Treatment combine(Treatment treatment);
-}
-*/
 
 public class QuarantineTwo {
 
@@ -73,11 +32,13 @@ public class QuarantineTwo {
     public QuarantineTwo(String patients) {
         Classifier classifier = new Classifier(patients.toUpperCase());
         this.patients = Arrays.asList(
-                new Patients(Disease.Tuberculosis, classifier.getNumberOf("T")),
-                new Patients(Disease.Diabetes, classifier.getNumberOf("D")),
-                new Patients(Disease.Healthy, classifier.getNumberOf("H")),
-                new Patients(Disease.Fever, classifier.getNumberOf("F")),
-                new Patients(Disease.Death, 0)
+                new Patients(HealthStatus.Tuberculosis, classifier.getNumberOf("T")),
+                new Patients(HealthStatus.Diabetes, classifier.getNumberOf("D")),
+                new Patients(HealthStatus.Healthy, classifier.getNumberOf("H")),
+                new Patients(HealthStatus.Fever, classifier.getNumberOf("F")),
+
+                /*initially, the number of death is zero*/
+                new Patients(HealthStatus.Death, 0)
         );
     }
 
@@ -119,28 +80,32 @@ public class QuarantineTwo {
     }
 
     Patients healthy() {
-        return get(Disease.Healthy);
-    }
-    Patients feverish() {
-        return get(Disease.Fever);
-    }
-    Patients tuberculous() {
-        return get(Disease.Tuberculosis);
-    }
-    Patients death() {
-        return get(Disease.Death);
-    }
-    Patients diabetics() {
-        return get(Disease.Diabetes);
+        return get(HealthStatus.Healthy);
     }
 
-    private Patients get(Disease disease) {
+    Patients feverish() {
+        return get(HealthStatus.Fever);
+    }
+
+    Patients tuberculous() {
+        return get(HealthStatus.Tuberculosis);
+    }
+
+    Patients death() {
+        return get(HealthStatus.Death);
+    }
+
+    Patients diabetics() {
+        return get(HealthStatus.Diabetes);
+    }
+
+    private Patients get(HealthStatus healthStatus) {
         for (Patients patient : patients) {
-            if ( disease.equals(patient.getDisease()) ) {
+            if (healthStatus.equals(patient.getHealthStatus())) {
                 return patient;
             }
         }
-        throw new NoSuchElementException("No group of patients with "+disease);
+        throw new NoSuchElementException("No group of patients with " + healthStatus);
     }
 }
 

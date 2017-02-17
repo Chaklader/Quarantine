@@ -13,46 +13,65 @@ import java.util.Set;
  */
 public class Treatment implements Medicine {
 
-    private final Set<Medicine> content;
+    private final Set<Medicine> medicines;
+    private final int TREATMENT_OPTIONS = 5;
 
-    public Treatment(Medicine content) {
-        this.content = new HashSet<>(5);
-        this.content.add(content);
+    /* we will use 2 constructors to facilite the operation*/
+
+    public Treatment(Medicine medicine) {
+        // initialize the medicine set
+        this.medicines = new HashSet<>(TREATMENT_OPTIONS);
+        // add the new medicine to the set
+        this.medicines.add(medicine);
     }
 
-    private Treatment(Set<Medicine> content) {
-        this.content = new HashSet<>(content);
+    private Treatment(Set<Medicine> medicines) {
+        this.medicines = new HashSet<>(medicines);
     }
 
+    /**
+     * remove the mentioned medicine from the set of the mediciens
+     *
+     * @param other
+     * @return
+     */
     Treatment remove(Medicine other) {
-        if ( !content.contains(other) ) {
-            throw new NoSuchElementException("No "+other+" in this treatment");
+        if (!medicines.contains(other)) {
+            throw new NoSuchElementException("No " + other + " in this treatment");
         }
-        Treatment copy = new Treatment(content);
-        copy.content.remove(other);
-        return copy;
+        Treatment treatment = new Treatment(medicines);
+        treatment.medicines.remove(other);
+        return treatment;
     }
 
-    Treatment plus(Medicine other) {
-        Treatment copy = new Treatment(content);
-        copy.content.add(other);
-        return copy;
+
+    /**
+     * add new medicine to the set of medicines used in the treatment
+     *
+     *
+     * @param medicine added new medicine to the treatment procedure
+     * @return
+     */
+    Treatment plus(Medicine medicine) {
+        Treatment treatment = new Treatment(medicines);
+        treatment.medicines.add(medicine);
+        return treatment;
     }
 
     boolean contains(Medicine medicine) {
-        return content.contains(medicine);
+        return medicines.contains(medicine);
     }
 
     @Override
     public void on(QuarantineTwo quarantineTwo) {
-        content.forEach(m -> m.on(quarantineTwo));
+        medicines.forEach(m -> m.on(quarantineTwo));
     }
 
     @Override
-    public Treatment combine(Treatment treatment) {
-        Treatment copy = new Treatment(content);
-        copy.content.addAll(treatment.content);;
-        return copy;
+    public Treatment combine(Treatment addedTreatment) {
+        Treatment treatment = new Treatment(medicines);
+        treatment.medicines.addAll(addedTreatment.medicines);
+        return treatment;
     }
 }
 

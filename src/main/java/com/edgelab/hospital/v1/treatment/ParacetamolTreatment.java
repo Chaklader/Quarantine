@@ -1,4 +1,4 @@
-package com.edgelab.hospital.v1;
+package com.edgelab.hospital.v1.treatment;
 
 import com.edgelab.hospital.v1.HealthCondition;
 import com.edgelab.hospital.v1.Medication;

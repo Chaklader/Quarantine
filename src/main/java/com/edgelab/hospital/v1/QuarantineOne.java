@@ -1,7 +1,6 @@
 package com.edgelab.hospital.v1;
 
-import com.edgelab.hospital.v1.treatment.AbstractTreatment;
-import com.edgelab.hospital.v1.treatment.AntibioticTreatment;
+import com.edgelab.hospital.v1.treatment.*;
 
 import java.util.HashMap;
 import java.util.LinkedList;

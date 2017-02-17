@@ -3,14 +3,26 @@ package com.edgelab.hospital.v2;
 /**
  * Created by Chaklader on 2/16/17.
  */
-interface  Medicine {
+interface Medicine {
 
     Medicine None = new Medicine() {
+        /**
+         * medicine will be provided to the quarantine system
+         *
+         * @param q represents the quarantine system where the treatment wil be provided
+         */
         @Override
         public void on(QuarantineTwo q) {
-            q.diabetics().becomes(q.death());
+            q.diabetics().changeHealthStatus(q.death());
         }
 
+
+        /**
+         * add with other medicine to make the combined treatment procedure
+         *
+         * @param treatment currect treatment scheme before adding this medicine
+         * @return
+         */
         @Override
         public Treatment combine(Treatment treatment) {
             return treatment.plus(this);
@@ -22,10 +34,16 @@ interface  Medicine {
         }
     };
 
+
     Medicine Aspirin = new Medicine() {
+        /**
+         * Aspirine cures the fever
+         *
+         * @param q
+         */
         @Override
         public void on(QuarantineTwo q) {
-            q.feverish().becomes(q.healthy());
+            q.feverish().changeHealthStatus(q.healthy());
         }
 
         @Override
@@ -39,10 +57,17 @@ interface  Medicine {
         }
     };
 
+
     Medicine Antibiotic = new Medicine() {
+
+        /**
+         * Antibiotic cures the tuberculous
+         *
+         * @param q
+         */
         @Override
         public void on(QuarantineTwo q) {
-            q.tuberculous().becomes(q.healthy());
+            q.tuberculous().changeHealthStatus(q.healthy());
         }
 
         @Override
@@ -60,8 +85,9 @@ interface  Medicine {
 
         @Override
         public void on(QuarantineTwo q) {
-            if (isHotMix(q.getTreatment())) {
-                q.healthy().becomes(q.feverish());
+
+            if (isInsulinCombinedWithAntibiotic(q.getTreatment())) {
+                q.healthy().changeHealthStatus(q.feverish());
             } else {
                 // Prevent None effects, done is this.combine
             }
@@ -73,7 +99,13 @@ interface  Medicine {
                     .plus(this);
         }
 
-        private boolean isHotMix(Treatment treatment) {
+        /**
+         * helper method to see whether the Insulin is combined with Antibiotic
+         *
+         * @param treatment
+         * @return
+         */
+        private boolean isInsulinCombinedWithAntibiotic(Treatment treatment) {
             return treatment.contains(this) &&
                     treatment.contains(Medicine.Antibiotic);
         }
@@ -84,20 +116,27 @@ interface  Medicine {
         }
     };
 
+
     Medicine Paracetamol = new Medicine() {
+
         @Override
         public void on(QuarantineTwo quarantineTwo) {
-            if (isToxicMix(quarantineTwo.getTreatment())) {
-                quarantineTwo.feverish().becomes(quarantineTwo.death());
-                quarantineTwo.healthy().becomes(quarantineTwo.death());
-                quarantineTwo.diabetics().becomes(quarantineTwo.death());
-                quarantineTwo.tuberculous().becomes(quarantineTwo.death());
-            } else{
-                quarantineTwo.feverish().becomes(quarantineTwo.healthy());
+            if (isParacetamolIsCombinedWithAspirin(quarantineTwo.getTreatment())) {
+
+                /* the patient will die irrespective of the health condition*/
+                quarantineTwo.feverish().changeHealthStatus(quarantineTwo.death());
+                quarantineTwo.healthy().changeHealthStatus(quarantineTwo.death());
+                quarantineTwo.diabetics().changeHealthStatus(quarantineTwo.death());
+                quarantineTwo.tuberculous().changeHealthStatus(quarantineTwo.death());
+            }
+
+            /*if we only use Paracetamol, the fever will be cured*/
+            else {
+                quarantineTwo.feverish().changeHealthStatus(quarantineTwo.healthy());
             }
         }
 
-        private boolean isToxicMix(Treatment treatment) {
+        private boolean isParacetamolIsCombinedWithAspirin(Treatment treatment) {
             return treatment.contains(this) &&
                     treatment.contains(Aspirin);
         }
@@ -110,7 +149,5 @@ interface  Medicine {
 
 
     void on(QuarantineTwo quarantineTwo);
-
     Treatment combine(Treatment treatment);
-
 }

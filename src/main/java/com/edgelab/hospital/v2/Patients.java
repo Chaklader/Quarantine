@@ -7,11 +7,11 @@ import static java.lang.String.format;
  */
 class Patients {
 
-    private final Disease disease;
+    private final HealthStatus healthStatus;
     private int size = 0;
 
-    public Patients(Disease disease, int initialSize) {
-        this.disease = disease;
+    public Patients(HealthStatus healthStatus, int initialSize) {
+        this.healthStatus = healthStatus;
         this.size = initialSize;
     }
 
@@ -27,18 +27,23 @@ class Patients {
         this.size = 0;
     }
 
-    public void becomes(Patients other) {
+    /**
+     * change the patient health status from one to another
+     *
+     * @param other get the new health status of the patient
+     */
+    public void changeHealthStatus(Patients other) {
         other.increments(size);
         this.clear();
     }
 
-    public Disease getDisease() {
-        return disease;
+    public HealthStatus getHealthStatus() {
+        return healthStatus;
     }
 
     @Override
     public String toString() {
-        return format("%1$d patient(s) with %2$s", getSize(), getDisease());
+        return format("%1$d patient(s) with %2$s", getSize(), getHealthStatus());
     }
 }
 

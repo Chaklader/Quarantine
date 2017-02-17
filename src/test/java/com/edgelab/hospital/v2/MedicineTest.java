@@ -3,7 +3,7 @@ package com.edgelab.hospital.v2;
 import org.junit.Test;
 
 
-import static com.edgelab.hospital.v2.Disease.*;
+import static com.edgelab.hospital.v2.HealthStatus.*;
 import static com.edgelab.hospital.v2.Medicine.*;
 
 import static org.mockito.Mockito.never;
@@ -28,31 +28,31 @@ public class MedicineTest {
     @Test
     public void none_kill_diabetics() {
         None.on(quarantine);
-        verify(diabetics).becomes(death);
+        verify(diabetics).changeHealthStatus(death);
     }
 
     @Test
     public void aspirin_cure_feverish() {
         Aspirin.on(quarantine);
-        verify(feverish).becomes(healthy);
+        verify(feverish).changeHealthStatus(healthy);
     }
 
     @Test
     public void antibiotic_cure_tuberculosis() {
         Antibiotic.on(quarantine);
-        verify(tuberculous).becomes(healthy);
+        verify(tuberculous).changeHealthStatus(healthy);
     }
 
     @Test
     public void insuline_prevent_diabetic_to_die() {
         Insulin.on(quarantine);
-        verify(diabetics, never()).becomes(death);
+        verify(diabetics, never()).changeHealthStatus(death);
     }
 
     @Test
     public void paracetamol_cure_feverish() {
         Paracetamol.on(quarantine);
-        verify(feverish).becomes(healthy);
+        verify(feverish).changeHealthStatus(healthy);
     }
 
 }
