@@ -26,7 +26,7 @@ public class Insulin extends AbstractMedicine {
 
     @Override
     public void on(Quarantine q) {
-
+        
         if (isInsulinCombinedWithAntibiotic(q.getTreatment())) {
 
             /* this will change the health status from healthy to the feverish

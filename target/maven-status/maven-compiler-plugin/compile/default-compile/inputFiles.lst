@@ -1,10 +1,23 @@
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AbstractTreatment.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/ParacetamolTreatment.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/QuarantineFactory.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AntibioticTreatment.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/AspirinTreatment.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/Wait40DaysTreatment.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/HealthCondition.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/Medication.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/Quarantine.java
-/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital/src/main/java/com/edgelab/hospital/treatment/InsulinTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/None.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/Paracetamol.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/IMedicine.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/Medication.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/Antibiotic.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/AspirinTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Treatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/InsulinTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/ParacetamolTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/HealthCondition.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/Wait40DaysTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/QuarantineFactory.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Patients.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Classifier.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Quarantine.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/QuarantineOne.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/IPatientTreatedWithMedicines.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/AbstractMedicine.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/AbstractTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v1/treatment/AntibioticTreatment.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/Insulin.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/HealthStatus.java
+/Users/Chaklader/Documents/My Projects/hospital/src/main/java/com/edgelab/hospital/v2/Medicines/Aspirin.java

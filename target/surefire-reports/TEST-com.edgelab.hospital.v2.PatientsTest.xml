@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="com.edgelab.hospital.QuarantineTest" time="0.186" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="com.edgelab.hospital.v2.PatientsTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib"/>
     <property name="java.vm.version" value="25.60-b23"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/Chaklader/Documents/My Projects/hospital"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Chaklader/Documents/Programming Interview/EdgeLab Interview/hospital"/>
+    <property name="user.dir" value="/Users/Chaklader/Documents/My Projects/hospital"/>
     <property name="java.runtime.version" value="1.8.0_60-b27"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/endorsed"/>
@@ -62,12 +62,6 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="antibiotic" time="0.177"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="aspirin" time="0.001"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="beforeTreatment" time="0.002"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="paracetamolAndAspirin" time="0.004"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="paracetamol" time="0"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="noTreatment" time="0.001"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="insulin" time="0.001"/>
-  <testcase classname="com.edgelab.hospital.QuarantineTest" name="antibioticPlusInsulin" time="0"/>
+  <testcase classname="com.edgelab.hospital.v2.PatientsTest" name="getSize_returns_the_group_size" time="0"/>
+  <testcase classname="com.edgelab.hospital.v2.PatientsTest" name="becomes_move_everyone_to_other" time="0.001"/>
 </testsuite>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.edgelab.hospital.v2.Medicines.IMedicineTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.829 sec

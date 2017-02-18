@@ -12,8 +12,6 @@ package com.edgelab.hospital.v2.Medicines;
  */
 public abstract class AbstractMedicine implements IMedicine, IPatientTreatedWithMedicines {
 
-    // Diabetes, Healthy, Fever, Death, Tuberculosis
-
     private static int numberOfDiabetes;
     private static int numberOfHealthy;
     private static int numberOfFever;

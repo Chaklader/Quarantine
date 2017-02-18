@@ -9,13 +9,6 @@ import java.util.Set;
 /**
  * Created by Chaklader on 2/17/17.
  */
-/*
-* 0. Write an IMedicine interface
-* 1. Extend the different medicine interface from the IMedicine
-* 2. Write an abstract Treatment class
-* 3. Extent the abstract Treatment class for the different treatments and implement separate interfaces
-* 4. Use the AbstractTreament inside the Quarantine class as strategy class
-* */
 public class Treatment implements IMedicine {
 
     private final Set<IMedicine> medicines;

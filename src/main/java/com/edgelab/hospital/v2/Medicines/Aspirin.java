@@ -26,7 +26,6 @@ public class Aspirin extends AbstractMedicine {
         return ourInstance;
     }
 
-
     /**
      * Aspirine cures the fever
      *

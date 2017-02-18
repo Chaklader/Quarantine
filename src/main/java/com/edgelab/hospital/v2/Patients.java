@@ -15,7 +15,6 @@ public class Patients {
         this.size = initialSize;
     }
 
-
     public int getSize() {
         return size;
     }
@@ -35,8 +34,11 @@ public class Patients {
 
 
     public void changeHealthStatus(Patients other, int num) {
-        other.increments(size-num);
-        this.decrements(size-num);
+
+        int change = size-num;
+        
+        other.increments(change);
+        this.decrements(change);
     }
 
     public HealthStatus getHealthStatus() {

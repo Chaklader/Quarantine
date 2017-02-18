@@ -18,6 +18,7 @@ public class Quarantine {
     private List<Patients> patients = new ArrayList<>(5);
 
     public Quarantine(String patients) {
+
         Classifier classifier = new Classifier(patients.toUpperCase());
         this.patients = Arrays.asList(
                 new Patients(HealthStatus.Tuberculosis, classifier.getNumberOf("T")),
@@ -34,10 +35,6 @@ public class Quarantine {
         this.patients = Arrays.asList(patients);
     }
 
-    public String report() {
-        return String.format("F:%1$d H:%2$d D:%3$d T:%4$d X:%5$d",
-                feverish().getSize(), healthy().getSize(), diabetics().getSize(), tuberculous().getSize(), death().getSize());
-    }
 
     public void wait40Days() {
         treatment.on(this);
@@ -59,12 +56,22 @@ public class Quarantine {
         distribute(Paracetamol.getInstance());
     }
 
+    public String report() {
+        return String.format("F:%1$d H:%2$d D:%3$d T:%4$d X:%5$d",
+                feverish().getSize(), healthy().getSize(), diabetics().getSize(), tuberculous().getSize(), death().getSize());
+    }
+
+
+
+
+    // additional functionality for the class 
     public Treatment getTreatment() {
         return treatment;
     }
 
+    //  use the decorator design pattern
+    // to distribute the medicines 
     private void distribute(IMedicine medicine) {
-        /*decorator design pattern*/
         treatment = medicine.combine(treatment);
     }
 
