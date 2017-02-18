@@ -1,8 +1,5 @@
-package com.edgelab.hospital.v2;
-
-/**
- * Created by Chaklader on 2/18/17.
- */
+//package com.edgelab.hospital.v2;
+//
 //import org.junit.Test;
 //
 //import static org.junit.Assert.*;
