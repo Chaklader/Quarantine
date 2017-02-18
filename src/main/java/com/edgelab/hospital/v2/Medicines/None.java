@@ -8,13 +8,21 @@ import com.edgelab.hospital.v2.Treatment;
  */
 public class None extends AbstractMedicine {
 
-    private static None ourInstance = new None();
-
-    public static None getInstance() {
-        return ourInstance;
-    }
+    private volatile static None ourInstance = null;
 
     private None() {
+    }
+
+    public static None getInstance() {
+
+        if (ourInstance == null) {
+            synchronized (Antibiotic.class) {
+                if (ourInstance == null) {
+                    ourInstance = new None();
+                }
+            }
+        }
+        return ourInstance;
     }
 
     /**
@@ -29,6 +37,7 @@ public class None extends AbstractMedicine {
 
     /**
      * add with other medicine to make the combined treatment procedure
+     *
      * @param treatment currect treatment scheme before adding this medicine
      * @return
      */

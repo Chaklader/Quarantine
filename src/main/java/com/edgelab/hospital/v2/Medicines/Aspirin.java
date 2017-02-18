@@ -7,16 +7,25 @@ import com.edgelab.hospital.v2.Treatment;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class Aspirin extends AbstractMedicine{
+public class Aspirin extends AbstractMedicine {
 
-    private static Aspirin ourInstance = new Aspirin();
+    private volatile static Aspirin ourInstance = null;
 
-    public static Aspirin getInstance() {
-        return ourInstance;
-    }
 
     private Aspirin() {
     }
+
+    public static Aspirin getInstance() {
+        if (ourInstance == null) {
+            synchronized (Antibiotic.class) {
+                if (ourInstance == null) {
+                    ourInstance = new Aspirin();
+                }
+            }
+        }
+        return ourInstance;
+    }
+
 
     /**
      * Aspirine cures the fever

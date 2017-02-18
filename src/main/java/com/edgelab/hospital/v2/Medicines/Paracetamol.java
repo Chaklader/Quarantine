@@ -9,13 +9,20 @@ import com.edgelab.hospital.v2.QuarantineThree;
  */
 public class Paracetamol extends AbstractMedicine{
 
-    private static Paracetamol ourInstance = new Paracetamol();
-
-    public static Paracetamol getInstance() {
-        return ourInstance;
-    }
+    private volatile static Paracetamol ourInstance = null;
 
     private Paracetamol() { }
+
+    public static Paracetamol getInstance() {
+        if (ourInstance == null) {
+            synchronized (Antibiotic.class) {
+                if (ourInstance == null) {
+                    ourInstance = new Paracetamol();
+                }
+            }
+        }
+        return ourInstance;
+    }
 
     @Override
     public void on(QuarantineThree quarantine) {

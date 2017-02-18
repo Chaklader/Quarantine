@@ -8,20 +8,22 @@ import com.edgelab.hospital.v2.Treatment;
  */
 public class Antibiotic extends AbstractMedicine {
 
-    private static Antibiotic ourInstance = new Antibiotic();
-//    private QuarantineThree quarantineThree;
-//
-//    public Antibiotic(QuarantineThree quarantineThree) {
-//        this.quarantineThree = quarantineThree;
-//        numberOfTuberculous = quarantineThree.tuberculous().getSize();
-//    }
+    private volatile static Antibiotic ourInstance = null;
 
-    public Antibiotic() {
+    private Antibiotic() {
     }
 
     public static Antibiotic getInstance() {
+        if( ourInstance==null){
+            synchronized(Antibiotic.class){
+                if(ourInstance==null){
+                    ourInstance = new Antibiotic();
+                }
+            }
+        }
         return ourInstance;
     }
+
 
 
     /**

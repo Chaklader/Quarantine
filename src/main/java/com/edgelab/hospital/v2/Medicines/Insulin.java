@@ -9,14 +9,19 @@ import com.edgelab.hospital.v2.Treatment;
  */
 public class Insulin extends AbstractMedicine {
 
-    private static Insulin ourInstance = new Insulin();
+    private volatile static Insulin ourInstance = null;
+
+    private Insulin() {}
 
     public static Insulin getInstance() {
+        if (ourInstance == null) {
+            synchronized (Antibiotic.class) {
+                if (ourInstance == null) {
+                    ourInstance = new Insulin();
+                }
+            }
+        }
         return ourInstance;
-    }
-
-    private Insulin() {
-
     }
 
     @Override
