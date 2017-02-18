@@ -1,6 +1,6 @@
 package com.edgelab.hospital.v2.Medicines;
 
-import com.edgelab.hospital.v2.QuarantineThree;
+import com.edgelab.hospital.v2.Quarantine;
 import com.edgelab.hospital.v2.Treatment;
 
 /**
@@ -32,7 +32,7 @@ public class Antibiotic extends AbstractMedicine {
      * @param quarantine
      */
     @Override
-    public void on(QuarantineThree quarantine) {
+    public void on(Quarantine quarantine) {
 
         /*set the number of the tuberculous before starting the treatment*/
         int numOfTuberculous = quarantine.tuberculous().getSize();

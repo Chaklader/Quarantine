@@ -8,9 +8,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Chaklader on 2/18/17.
  */
-public class QuarantineThreeTest {
+public class QuarantineTest {
 
-    private QuarantineThree quarantine;
+    private Quarantine quarantine;
 
     @Before
     public void setUp() {
@@ -23,7 +23,7 @@ public class QuarantineThreeTest {
         // F : Fever
         // D : Diabetes
         // T : Tuberculosis
-        quarantine = new QuarantineThree("F,H,D,D,D,H,T");
+        quarantine = new Quarantine("F,H,D,D,D,H,T");
 
         // Quarantine provides medicines to the patients, but can not target a specific group of patient.
         // The same medicines are always given to all the patients.

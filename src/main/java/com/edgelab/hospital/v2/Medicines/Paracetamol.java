@@ -2,7 +2,7 @@ package com.edgelab.hospital.v2.Medicines;
 
 
 import com.edgelab.hospital.v2.Treatment;
-import com.edgelab.hospital.v2.QuarantineThree;
+import com.edgelab.hospital.v2.Quarantine;
 
 /**
  * Created by Chaklader on 2/17/17.
@@ -25,7 +25,7 @@ public class Paracetamol extends AbstractMedicine{
     }
 
     @Override
-    public void on(QuarantineThree quarantine) {
+    public void on(Quarantine quarantine) {
 
         if (isParacetamolIsCombinedWithAspirin(quarantine.getTreatment())) {
 

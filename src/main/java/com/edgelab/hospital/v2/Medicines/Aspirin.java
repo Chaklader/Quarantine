@@ -1,7 +1,7 @@
 package com.edgelab.hospital.v2.Medicines;
 
 
-import com.edgelab.hospital.v2.QuarantineThree;
+import com.edgelab.hospital.v2.Quarantine;
 import com.edgelab.hospital.v2.Treatment;
 
 /**
@@ -33,7 +33,7 @@ public class Aspirin extends AbstractMedicine {
      * @param q
      */
     @Override
-    public void on(QuarantineThree q) {
+    public void on(Quarantine q) {
         q.feverish().changeHealthStatus(q.healthy());
     }
 

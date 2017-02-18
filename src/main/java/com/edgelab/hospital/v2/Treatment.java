@@ -1,6 +1,6 @@
 package com.edgelab.hospital.v2;
 
-import com.edgelab.hospital.v2.Medicines.iMedicine;
+import com.edgelab.hospital.v2.Medicines.IMedicine;
 
 import java.util.HashSet;
 import java.util.NoSuchElementException;
@@ -10,26 +10,26 @@ import java.util.Set;
  * Created by Chaklader on 2/17/17.
  */
 /*
-* 0. Write an iMedicine interface
-* 1. Extend the different medicine interface from the iMedicine
+* 0. Write an IMedicine interface
+* 1. Extend the different medicine interface from the IMedicine
 * 2. Write an abstract Treatment class
 * 3. Extent the abstract Treatment class for the different treatments and implement separate interfaces
 * 4. Use the AbstractTreament inside the Quarantine class as strategy class
 * */
-public class Treatment implements iMedicine {
+public class Treatment implements IMedicine {
 
-    private final Set<iMedicine> medicines;
+    private final Set<IMedicine> medicines;
     private final int TREATMENT_OPTIONS = 5;
 
     /* we will use 2 constructors to facilite the operation*/
-    public Treatment(iMedicine medicine) {
+    public Treatment(IMedicine medicine) {
         // initialize the medicine set
         this.medicines = new HashSet<>(TREATMENT_OPTIONS);
         // add the new medicine to the set
         this.medicines.add(medicine);
     }
 
-    private Treatment(Set<iMedicine> medicines) {
+    private Treatment(Set<IMedicine> medicines) {
         this.medicines = new HashSet<>(medicines);
     }
 
@@ -39,7 +39,7 @@ public class Treatment implements iMedicine {
      * @param other
      * @return
      */
-    public Treatment remove(iMedicine other) {
+    public Treatment remove(IMedicine other) {
         if (!medicines.contains(other)) {
             throw new NoSuchElementException("No " + other + " in this treatment");
         }
@@ -56,18 +56,18 @@ public class Treatment implements iMedicine {
      * @param medicine added new medicine to the treatment procedure
      * @return
      */
-    public Treatment plus(iMedicine medicine) {
+    public Treatment plus(IMedicine medicine) {
         Treatment treatment = new Treatment(medicines);
         treatment.medicines.add(medicine);
         return treatment;
     }
 
-    public boolean contains(iMedicine medicine) {
+    public boolean contains(IMedicine medicine) {
         return medicines.contains(medicine);
     }
 
     @Override
-    public void on(QuarantineThree quarantine) {
+    public void on(Quarantine quarantine) {
         medicines.forEach(m -> m.on(quarantine));
     }
 

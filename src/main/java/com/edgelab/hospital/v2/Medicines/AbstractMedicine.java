@@ -9,42 +9,41 @@ package com.edgelab.hospital.v2.Medicines;
  * this class helps me to tract the number of patients
  * in different health status before applied any medicine
  * in the quarantine system
- *
  */
-public abstract class AbstractMedicine implements iMedicine, iPatientCount {
+public abstract class AbstractMedicine implements IMedicine, IPatientTreatedWithMedicines {
 
     // Diabetes, Healthy, Fever, Death, Tuberculosis
 
-    private static  int numberOfDiabetes;
-    private static  int numberOfHealthy;
-    private static  int numberOfFever;
-    private static  int numberOfDeath;
-    private static  int numberOfTuberculous;
+    private static int numberOfDiabetes;
+    private static int numberOfHealthy;
+    private static int numberOfFever;
+    private static int numberOfDeath;
+    private static int numberOfTuberculous;
 
     @Override
-    public  int getNumberOfDiabetes() {
+    public int getNumberOfDiabetes() {
         return numberOfDiabetes;
     }
 
-    public static void setNumberOfDiabetes(int numberOfDiabetes) {
+    protected static void setNumberOfDiabetes(int numberOfDiabetes) {
         AbstractMedicine.numberOfDiabetes = numberOfDiabetes;
     }
 
     @Override
-    public  int getNumberOfHealthy() {
+    public int getNumberOfHealthy() {
         return numberOfHealthy;
     }
 
-    public static void setNumberOfHealthy(int numberOfHealthy) {
+    protected static void setNumberOfHealthy(int numberOfHealthy) {
         AbstractMedicine.numberOfHealthy = numberOfHealthy;
     }
 
     @Override
-    public  int getNumberOfFever() {
+    public int getNumberOfFever() {
         return numberOfFever;
     }
 
-    public static void setNumberOfFever(int numberOfFever) {
+    protected static void setNumberOfFever(int numberOfFever) {
         AbstractMedicine.numberOfFever = numberOfFever;
     }
 
@@ -53,17 +52,17 @@ public abstract class AbstractMedicine implements iMedicine, iPatientCount {
         return numberOfDeath;
     }
 
-    public static void setNumberOfDeath(int numberOfDeath) {
+    protected static void setNumberOfDeath(int numberOfDeath) {
         AbstractMedicine.numberOfDeath = numberOfDeath;
     }
 
 
-    public static void setNumberOfTuberculous(int numberOfTuberculous) {
-        AbstractMedicine.numberOfTuberculous = numberOfTuberculous;
-    }
-
     @Override
     public int getNumberOfTuberculous() {
         return numberOfTuberculous;
+    }
+
+    protected static void setNumberOfTuberculous(int numberOfTuberculous) {
+        AbstractMedicine.numberOfTuberculous = numberOfTuberculous;
     }
 }

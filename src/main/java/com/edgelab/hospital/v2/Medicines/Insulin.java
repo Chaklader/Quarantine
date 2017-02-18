@@ -1,7 +1,7 @@
 package com.edgelab.hospital.v2.Medicines;
 
 
-import com.edgelab.hospital.v2.QuarantineThree;
+import com.edgelab.hospital.v2.Quarantine;
 import com.edgelab.hospital.v2.Treatment;
 
 /**
@@ -25,7 +25,7 @@ public class Insulin extends AbstractMedicine {
     }
 
     @Override
-    public void on(QuarantineThree q) {
+    public void on(Quarantine q) {
 
         if (isInsulinCombinedWithAntibiotic(q.getTreatment())) {
 

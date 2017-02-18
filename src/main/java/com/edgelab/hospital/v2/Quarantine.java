@@ -12,12 +12,12 @@ import java.util.NoSuchElementException;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class QuarantineThree {
+public class Quarantine {
 
     private Treatment treatment = new Treatment(None.getInstance());
     private List<Patients> patients = new ArrayList<>(5);
 
-    public QuarantineThree(String patients) {
+    public Quarantine(String patients) {
         Classifier classifier = new Classifier(patients.toUpperCase());
         this.patients = Arrays.asList(
                 new Patients(HealthStatus.Tuberculosis, classifier.getNumberOf("T")),
@@ -30,7 +30,7 @@ public class QuarantineThree {
         );
     }
 
-    protected QuarantineThree(Patients... patients) {
+    public Quarantine(Patients... patients) {
         this.patients = Arrays.asList(patients);
     }
 
@@ -63,7 +63,7 @@ public class QuarantineThree {
         return treatment;
     }
 
-    private void distribute(iMedicine medicine) {
+    private void distribute(IMedicine medicine) {
         /*decorator design pattern*/
         treatment = medicine.combine(treatment);
     }
