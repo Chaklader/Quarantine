@@ -7,7 +7,7 @@ import com.edgelab.hospital.v2.Quarantine;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class Paracetamol extends AbstractMedicine{
+public class Paracetamol extends Medicine {
 
     private volatile static Paracetamol ourInstance = null;
 

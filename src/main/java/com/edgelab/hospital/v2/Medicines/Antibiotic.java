@@ -6,7 +6,7 @@ import com.edgelab.hospital.v2.Treatment;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class Antibiotic extends AbstractMedicine {
+public class Antibiotic extends Medicine {
 
     private volatile static Antibiotic ourInstance = null;
 
@@ -25,7 +25,6 @@ public class Antibiotic extends AbstractMedicine {
     }
 
 
-
     /**
      * Antibiotic cures the tuberculous
      *
@@ -33,11 +32,8 @@ public class Antibiotic extends AbstractMedicine {
      */
     @Override
     public void on(Quarantine quarantine) {
-
-        /*set the number of the tuberculous before starting the treatment*/
-        int numOfTuberculous = quarantine.tuberculous().getSize();
-        setNumberOfTuberculous(numOfTuberculous);
-
+        /*cout the number of the patients in different health conditions*/
+        PatientCountOn(quarantine);
         quarantine.tuberculous().changeHealthStatus(quarantine.healthy());
     }
 

@@ -7,12 +7,12 @@ import com.edgelab.hospital.v2.Treatment;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class Aspirin extends AbstractMedicine {
+public class Aspirin extends Medicine {
 
     private volatile static Aspirin ourInstance = null;
 
-
     private Aspirin() {
+
     }
 
     public static Aspirin getInstance() {

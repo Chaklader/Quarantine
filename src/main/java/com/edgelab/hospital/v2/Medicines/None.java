@@ -6,7 +6,7 @@ import com.edgelab.hospital.v2.Treatment;
 /**
  * Created by Chaklader on 2/18/17.
  */
-public class None extends AbstractMedicine {
+public class None extends Medicine {
 
     private volatile static None ourInstance = null;
 

@@ -7,7 +7,7 @@ import com.edgelab.hospital.v2.Treatment;
 /**
  * Created by Chaklader on 2/17/17.
  */
-public class Insulin extends AbstractMedicine {
+public class Insulin extends Medicine {
 
     private volatile static Insulin ourInstance = null;
 

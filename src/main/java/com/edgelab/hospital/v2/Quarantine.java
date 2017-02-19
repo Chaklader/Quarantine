@@ -35,7 +35,6 @@ public class Quarantine {
         this.patients = Arrays.asList(patients);
     }
 
-
     public void wait40Days() {
         treatment.on(this);
     }
