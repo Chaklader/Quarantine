@@ -5,8 +5,6 @@ package com.edgelab.hospital.v2.Medicines;
  */
 
 
-import com.edgelab.hospital.v2.Quarantine;
-
 /**
  * this interfaces will help to count the
  * number of people treated with medicines with
@@ -14,9 +12,9 @@ import com.edgelab.hospital.v2.Quarantine;
  */
 public interface IPatientWithMed {
 
-    void setNumberOfTuberculous(Quarantine quarantine);
-    void setNumberOfDiabetes(Quarantine quarantine);
-    void setNumberOfHealthy(Quarantine quarantine);
-    void setNumberOfFever(Quarantine quarantine);
-    void setNumberOfDeath(Quarantine quarantine);
+    int getNumberOfTuberculous();
+    int getNumberOfDiabetes();
+    int getNumberOfHealthy();
+    int getNumberOfFever();
+    int getNumberOfDeath();
 }

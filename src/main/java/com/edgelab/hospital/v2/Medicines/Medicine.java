@@ -12,22 +12,75 @@ import com.edgelab.hospital.v2.Quarantine;
  * in different health status before applied any medicine
  * in the quarantine system
  */
-public abstract class Medicine extends IMediOpSmoother {
+public abstract class Medicine implements IMedicine, IPatientWithMed {
 
-    private IMediOpSmoother iMediOpSmoother;
+    private static int numberOfDiabetes;
+    private static int numberOfHealthy;
+    private static int numberOfFever;
+    private static int numberOfDeath;
+    private static int numberOfTuberculous;
+
+    private Quarantine quarantine;
 
     public Medicine() {
-
-    }
-    public Medicine(IMediOpSmoother iMediOpSmoother) {
-        this.iMediOpSmoother = iMediOpSmoother;
     }
 
-    protected void PatientCountOn(Quarantine quarantine) {
-        iMediOpSmoother.setNumberOfDeath(quarantine);
-        iMediOpSmoother.setNumberOfDiabetes(quarantine);
-        iMediOpSmoother.setNumberOfFever(quarantine);
-        iMediOpSmoother.setNumberOfTuberculous(quarantine);
-        iMediOpSmoother.setNumberOfHealthy(quarantine);
+    public Medicine(Quarantine quarantine) {
+        this.quarantine = quarantine;
     }
+
+    @Override
+    public int getNumberOfDiabetes() {
+        return numberOfDiabetes;
+    }
+
+    public static void setNumberOfDiabetes(Quarantine quarantine) {
+        Medicine.numberOfDiabetes = quarantine.diabetics().getSize();
+    }
+
+    @Override
+    public int getNumberOfHealthy() {
+        return numberOfHealthy;
+    }
+
+    public static void setNumberOfHealthy(Quarantine quarantine) {
+        Medicine.numberOfHealthy = quarantine.healthy().getSize();
+    }
+
+    @Override
+    public int getNumberOfFever() {
+        return numberOfFever;
+    }
+
+    public static void setNumberOfFever(Quarantine quarantine) {
+        Medicine.numberOfFever = quarantine.feverish().getSize();
+    }
+
+    @Override
+    public int getNumberOfDeath() {
+        return numberOfDeath;
+    }
+
+    public static void setNumberOfDeath(Quarantine quarantine) {
+        Medicine.numberOfDeath = quarantine.death().getSize();
+    }
+
+    @Override
+    public int getNumberOfTuberculous() {
+        return numberOfTuberculous;
+    }
+
+    public static void setNumberOfTuberculous(Quarantine quarantine) {
+        Medicine.numberOfTuberculous = quarantine.tuberculous().getSize();
+    }
+
+    /*Facede design pattern */
+    public void countPatientNumber(Quarantine quarantine){
+        setNumberOfDiabetes(quarantine);
+        setNumberOfHealthy(quarantine);
+        setNumberOfFever(quarantine);
+        setNumberOfDeath(quarantine);
+        setNumberOfTuberculous(quarantine);
+    }
+
 }

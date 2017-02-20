@@ -3,6 +3,8 @@ package com.edgelab.hospital.v2.Medicines;
 import com.edgelab.hospital.v2.Quarantine;
 import com.edgelab.hospital.v2.Treatment;
 
+import java.util.Objects;
+
 /**
  * Created by Chaklader on 2/17/17.
  */
@@ -32,8 +34,6 @@ public class Antibiotic extends Medicine {
      */
     @Override
     public void on(Quarantine quarantine) {
-        /*cout the number of the patients in different health conditions*/
-        PatientCountOn(quarantine);
         quarantine.tuberculous().changeHealthStatus(quarantine.healthy());
     }
 

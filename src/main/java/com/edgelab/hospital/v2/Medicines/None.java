@@ -3,6 +3,8 @@ package com.edgelab.hospital.v2.Medicines;
 import com.edgelab.hospital.v2.Quarantine;
 import com.edgelab.hospital.v2.Treatment;
 
+import java.util.Objects;
+
 /**
  * Created by Chaklader on 2/18/17.
  */
@@ -28,11 +30,16 @@ public class None extends Medicine {
     /**
      * medicine will be provided to the quarantine system
      *
-     * @param q represents the quarantine system where the treatment wil be provided
+     * @param quarantine represents the quarantine system where the treatment wil be provided
      */
     @Override
-    public void on(Quarantine q) {
-        q.diabetics().changeHealthStatus(q.death());
+    public void on(Quarantine quarantine) {
+
+        /*cout the number of the patients in different health conditions*/
+        if(Objects.nonNull(quarantine)){
+            countPatientNumber(quarantine);
+        }
+        quarantine.diabetics().changeHealthStatus(quarantine.death());
     }
 
     /**

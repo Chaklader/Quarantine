@@ -26,6 +26,8 @@ public class Treatment implements IMedicine {
         this.medicines = new HashSet<>(medicines);
     }
 
+
+
     /**
      * remove the mentioned medicine from the set of the mediciens
      *
